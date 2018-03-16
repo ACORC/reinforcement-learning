@@ -1,2 +1,2 @@
 # reinforcement-learning
-RL Library
+RL Library & Demos
