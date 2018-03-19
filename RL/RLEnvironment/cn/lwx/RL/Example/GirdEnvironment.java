@@ -18,6 +18,7 @@ public class GirdEnvironment extends RLEnvironment {
         num = 0;
         grid = new int[rows][cols];
         this.reset();
+        this.setState(new GirdState(-1, -1));
     }
 
     public void setBlock(int x, int y, int type) {
