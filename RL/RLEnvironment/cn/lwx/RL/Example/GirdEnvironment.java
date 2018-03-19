@@ -17,12 +17,21 @@ public class GirdEnvironment extends RLEnvironment {
         this.rows = rows;
         num = 0;
         grid = new int[rows][cols];
+        this.reset();
+    }
+
+    public void setBlock(int x, int y, int type) {
+        if (x >= rows || y >= cols)
+            return;
+        grid[y][x] = type;
     }
 
     public void setBarrier(int x, int y) {
-        if (x >= rows || y >= cols)
-            return;
-        grid[y][x] = -1;
+        this.setBlock(x, y, -1);
+    }
+
+    public void setExit(int x, int y) {
+        this.setBlock(x, y, -1);
     }
 
     @Override
@@ -71,8 +80,17 @@ public class GirdEnvironment extends RLEnvironment {
         hashMap.put(3,"right");
         MoveAction action = new MoveAction(hashMap);
         GirdEnvironment environment = new GirdEnvironment(action, 5, 5);
-        environment.reset();
+        environment.setBarrier(0,2);
         environment.setBarrier(1,2);
+
+        environment.setBarrier(3,0);
+        environment.setBarrier(3,1);
+
+        environment.setBarrier(2,4);
+        environment.setBarrier(3,4);
+        environment.setBarrier(4,4);
+
+        environment.setExit(4, 2);
 
         environment.render();
     }
