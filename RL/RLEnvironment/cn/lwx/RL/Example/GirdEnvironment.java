@@ -46,7 +46,8 @@ public class GirdEnvironment extends RLEnvironment {
         for (int i = 0; i < cols; i++) {
             stringBuilder.append("[");
             for (int j = 0; j < rows; j++) {
-                stringBuilder.append(grid[i][j] + ",");
+                stringBuilder.append(grid[i][j]);
+                stringBuilder.append(",");
             }
             stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.lastIndexOf(",")+1,"");
             stringBuilder.append("]\n");
